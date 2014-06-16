@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technology Evangelist</title>
+    <description>Working as a Team Lead at Nisum Technologies, am passionate about technology and impact of technology on human life.</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Lean Practices @ Software Development</title>
+        <description>
+</description>
+        <pubDate>Sun, 15 Jun 2014 15:04:30 -0700</pubDate>
+        <link>http://yourdomain.com/lean/practices/@/software/development/2014/06/15/Lean%20Practices%20@%20Software%20Development/</link>
+        <guid isPermaLink="true">http://yourdomain.com/lean/practices/@/software/development/2014/06/15/Lean%20Practices%20@%20Software%20Development/</guid>
+      </item>
+    
+  </channel>
+</rss>
