@@ -160,10 +160,6 @@ Delays in deployment.&lt;/p&gt;
 
 &lt;p&gt;Value stream  mapping&lt;/p&gt;
 
-&lt;p&gt;% if page.comments %&lt;/p&gt;
-
-&lt;p&gt;% endif %&lt;/p&gt;
-
 </description>
         <pubDate>Sun, 15 Jun 2014 15:04:30 -0700</pubDate>
         <link>http://yourdomain.com/lean/2014/06/15/Lean%20Development/</link>
