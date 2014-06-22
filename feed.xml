@@ -7,43 +7,78 @@
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Lean Software Development - I</title>
-        <description>&lt;p&gt;Applying lean industrial practices to Software Development&lt;/p&gt;
+        <title>Lean Principles @ Software Development - I</title>
+        <description>&lt;p&gt;Nowadays we commonly hear about agile methodology an agile practices now a days in IT industry, I always have feel that ‘Agile at Scale ‘ is a bigger problem organizations are facing now a days when trying to adopt to agile process or agile delivery process.All agile practices works pretty well in smaller to medium sized organizations when it comes to bigger organizations/enterprises the co-ordination should happen between large no of teams which are not co-located.
+Though i have worked in different organizations who follow agile and begin trained by IM [Iteration Manager ]/Agile coaches several times regarding Agile still i feel like something is missing, in search for origins of Agile i came across ‘Lean Principles’ and am surprised while going through the principles and came to know that all these agile principles are been adopted from Lean Principles.
+If every member in the organization at every department knows about this ‘Lean Principles’ and been educated about these core principles from Lean ‘ Agile at Scale ‘ becomes easier.&lt;/p&gt;
 
-&lt;p&gt;How to apply lean manufacturing principles / ideas to Software Development.&lt;/p&gt;
+&lt;p&gt;Following are the few insights from the book , most of the material below is how the lean principles can be adopted to Software Development.&lt;/p&gt;
 
-&lt;p&gt;Applying Toyotas set based decision making principles or ideas to software design.&lt;/p&gt;
+&lt;p&gt;Lean software development applies a wealth of information about applying lean techniques from industrial setting to software development. Wait for the requirements than to build up the application in anticipation of the requirements yet the ideal is to deliver the application immediately when the requirements are ready.&lt;/p&gt;
 
-&lt;p&gt;Traditional engineering (software and others) stresses analysis and early design decision making so down stream activities can proceed.&lt;/p&gt;
+&lt;p&gt;Following are the seven principles at high level&lt;/p&gt;
 
-&lt;p&gt;Set-based development stresses keeping multiple design options open in order to have as much as information as possible, not only about a particular piece or the design, but also about the integration of all pieces. Set-based development helps optimize the whole rather than the pieces. Simple design and refactoring serve similar purposes for software developers - pushing off certain design decisions in to the future when more information is available.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Eliminate Waste&lt;/li&gt;
+  &lt;li&gt;Amplify Learning&lt;/li&gt;
+  &lt;li&gt;Decide as late as possible&lt;/li&gt;
+  &lt;li&gt;Deliver as fast as possible&lt;/li&gt;
+  &lt;li&gt;Empower the team&lt;/li&gt;
+  &lt;li&gt;Build integrity in&lt;/li&gt;
+  &lt;li&gt;See the whole&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Set-based development therefore provides a parallel that adds credibility to agile practices but also shows how to extend those practices.&lt;/p&gt;
+&lt;p&gt;We will go deeper in to the first principle Eliminate Waste in the below article&lt;/p&gt;
 
-&lt;p&gt;Lean software development applies a wealth of information about applying lean techniques from industrial setting to software development.&lt;/p&gt;
+&lt;h2 id=&quot;first-principle--eliminate-waste&quot;&gt;First Principle : Eliminate Waste&lt;/h2&gt;
 
-&lt;p&gt;Wait for the requirements than to build up the application in anticipation of the requirements yet the ideal is to deliver the application immediately when the requirements are ready.&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Origins of Lean Thinking&lt;/i&gt;
+In the late 1940s all the car manufacturing companies used to follow the mass production strategy. Mass production was the cheapest way to make cars which is making the same kind of car in large quantities.&lt;/p&gt;
 
-&lt;p&gt;First Principle : Eliminate Waste&lt;/p&gt;
-
-&lt;p&gt;In the late 1940s all the car manufacturing companies used to follow the mass production strategy. Mass production was the cheapest way to make cars which is making the same kind of car in large quantities.&lt;/p&gt;
-
-&lt;p&gt;In this era Toyota set out to manufacture cars for Japan market for cheaper price. Japan market at this time not large enough to use the Mass production strategy so the question was “ how could Toyota make cars in small quantities but keep them as inexpensive as mass-produced cars?”&lt;/p&gt;
+&lt;p&gt;In this era Toyota set out to manufacture cars for Japan market for cheaper price. Japan market at this time not large enough to use the Mass production strategy so the question was “ How could Toyota make cars in small quantities but keep them as inexpensive as mass-produced cars?”&lt;/p&gt;
 
 &lt;p&gt;To solve this problem Toyota Production system emerged to form the basis of a whole new way of thinking about manufacturing, logistics and eventually product development. At the heart of this thinking was fundamental lean principle : Eliminate Waste.&lt;/p&gt;
 
-&lt;p&gt;In this principle anything that does not create value for a customer is considered as waste.
-A part that is sitting around waiting to be used is waste.
-Making something that is not immediately used is waste.
-Motion is waste.
-Transportation is waste.
-Waiting is waste.
-Any extra processing steps are waste.
-Defects are waste.&lt;/p&gt;
+&lt;p&gt;In this principle anything that does not create value for a customer is considered as waste.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;   A part that is sitting around waiting to be used is waste. &lt;/li&gt;
+&lt;li&gt;   Making something that is not immediately used is waste.       &lt;/li&gt;
+&lt;li&gt;   Motion is waste. &lt;/li&gt;
+&lt;li&gt;  Transportation is waste.&lt;/li&gt;
+&lt;li&gt;   Waiting is waste.            &lt;/li&gt;
+&lt;li&gt;   Any extra processing steps are waste.&lt;/li&gt;
+&lt;li&gt;   Defects are waste.                        &lt;/li&gt;
 
-&lt;p&gt;Following are the different wastes that have beeb identified in manufacturing processes and we can see how those can be related to software development. Later we can see more info about these wastes in details and how we can avoid them.&lt;/p&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;Partially Done Work&lt;/p&gt;
+&lt;p&gt;If something does not directly add value as perceived by the customer, it is waste.every step in the waterfall model other than analysis and coding is considered as waste.&lt;/p&gt;
+
+&lt;p&gt;Following are the different wastes that have been identified in manufacturing processes and we can see how those can be related to software development.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;tr&gt;
+ &lt;th&gt;  Wastes of Manufacturing  &lt;/th&gt; &lt;th&gt;  Wastes of Software Development  &lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+ &lt;td&gt; Inventory &lt;/td&gt; &lt;td&gt; Partially Done Work &lt;/td&gt;
+&lt;/tr&gt;
+ &lt;td&gt; Extra Processing &lt;/td&gt; &lt;td&gt; Extra Processes &lt;/td&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt; OverProduction &lt;/td&gt; &lt;td&gt; Extra Features &lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt; Transportation &lt;/td&gt; &lt;td&gt; Task Switching &lt;/td&gt;
+ &lt;/tr&gt;&lt;tr&gt;
+ &lt;td&gt; Waiting &lt;/td&gt; &lt;td&gt; Waiting &lt;/td&gt;
+ &lt;/tr&gt;    &lt;tr&gt;
+ &lt;td&gt; Motion &lt;/td&gt; &lt;td&gt; Motion &lt;/td&gt;
+ &lt;/tr&gt;        &lt;tr&gt;
+ &lt;td&gt; Defects &lt;/td&gt; &lt;td&gt; Defects &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;partially-done-work&quot;&gt;Partially Done Work&lt;/h2&gt;
 
 &lt;p&gt;Partially done software development has a tendency to be obsolete, and it gets in the way of any other development work that we do.&lt;/p&gt;
 
@@ -56,22 +91,25 @@ You might have the business requirements ,  design documents and pile of code wh
 
 &lt;p&gt;Minimizing the partially done software development is a risk-reduction as well as waste-reduction strategy.&lt;/p&gt;
 
-&lt;p&gt;Extra Processes&lt;/p&gt;
+&lt;h2 id=&quot;extra-processes&quot;&gt;Extra Processes&lt;/h2&gt;
 
-&lt;p&gt;Paper work or documentation’s seriously is that all really necessary.
-It consumes resources
-slows down reps one times.
-hides quality problems.
-gets lost.
-degrades and becomes obsolete.
-no one cares to read adds no value.&lt;/p&gt;
-
+&lt;p&gt;Paper work or documentation’s seriously is that all really necessary.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It consumes resources&lt;/li&gt;
+&lt;li&gt;slows down reps one times.&lt;/li&gt;
+&lt;li&gt;hides quality problems.&lt;/li&gt;
+&lt;li&gt;gets lost.&lt;/li&gt;
+&lt;li&gt;degrades and becomes obsolete.&lt;/li&gt;
+&lt;li&gt;no one cares to read adds no value.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;Does customer really finds this paper work or documentation more valuable? Some of the projects requires paper work or documentation as the required deliverable but does not mean that it adds value.&lt;/p&gt;
 
-&lt;p&gt;If at all for a project if it is required you should follow the below.
-Keep to short
-Keep it high level.
-Do it off line.&lt;/p&gt;
+&lt;p&gt;If at all for a project if it is required you should follow the below.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Keep to short&lt;/li&gt;
+&lt;li&gt;Keep it high level.&lt;/li&gt;
+&lt;li&gt;Do it off line.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;There are exceptions to these there might be some safety critical systems which are frequently regulated and often required to have written requirements, traceable to code, in this case instead of preparing bunch of documents about the requirements which can be used to evaluate the functionality of the delivered application it would be better if requirements are written in a table-driven or template driven format which can be understood by both users and developers.&lt;/p&gt;
 
@@ -79,11 +117,11 @@ Do it off line.&lt;/p&gt;
 
 &lt;p&gt;Always try to eliminate the documentation work and see if it can be communicate in any other efficient way for example writing acceptance tests instead of writing requirements. In general delay documentation details of a feature until the iteration in which they are implemented.&lt;/p&gt;
 
-&lt;p&gt;Extra features&lt;/p&gt;
+&lt;h2 id=&quot;extra-features&quot;&gt;Extra features&lt;/h2&gt;
 
 &lt;p&gt;How would an extra feature come in to an application and how does it becomes as a waste?&lt;/p&gt;
 
-&lt;p&gt;Business owners might think that this feature might be good just incase if it is needed in future.
+&lt;p&gt;Business owners might think that this feature might be good just in case if it is needed in future.
 Developers might like to add a cool technical feature which is not needed but just wanted to see how it works.&lt;/p&gt;
 
 &lt;p&gt;All these sounds good and harmless , but all these a serious waste. Why ? Every bit of code is to be minted by life time which means it should be completed , tested and integrated every time a change is made.&lt;/p&gt;
@@ -94,37 +132,39 @@ Developers might like to add a cool technical feature which is not needed but ju
 
 &lt;p&gt;Resist the temptation , If the code / feature is not needed now putting it in to the system is a waste.&lt;/p&gt;
 
-&lt;p&gt;Task Switching&lt;/p&gt;
+&lt;h2 id=&quot;task-switching&quot;&gt;Task Switching&lt;/h2&gt;
 
 &lt;p&gt;Assigning resources to multiple projects is a source of waste.
 Every time developers switch between tasks, a significant switching time is incurred as they get their thoughts incurred and get in the flow of new task.&lt;/p&gt;
 
-&lt;p&gt;Belonging to multiple teams means more interruption and more task switching.This task switching time is waste.&lt;/p&gt;
+&lt;p&gt;Belonging to multiple teams means more interruption and more task switching. This task switching time is waste.&lt;/p&gt;
 
 &lt;p&gt;The fastest way to complete two projects that use the same resources is to do one at a time.&lt;/p&gt;
 
-&lt;p&gt;TO DO :: Example of Task Switching&lt;/p&gt;
+&lt;p&gt;Say that you have two tasks, each task task takes two days to complete.If you start working on one of them, it should get completed in two days.When it is done you can start the second task and it should get completed in two days.What if you start working on both tasks together and expect to switch between the tasks in between them?First of all neither of them will get completed in two days, but will they both get completed in four days? When you add switching time, they will probably take longer than four days near to five days.&lt;/p&gt;
 
-&lt;p&gt;Waiting&lt;/p&gt;
+&lt;h2 id=&quot;waiting&quot;&gt;Waiting&lt;/h2&gt;
 
-&lt;p&gt;Biggest waste in s/w development is to wait for things to happen.&lt;/p&gt;
+&lt;p&gt;Biggest waste in software development is to wait for things to happen.&lt;/p&gt;
 
-&lt;p&gt;Delays are common on software development processes, and it seems counterintuitive to think of these delays as waste.&lt;/p&gt;
+&lt;p&gt;Delays are common on software development processes, and it seems counter intuitive to think of these delays as waste.&lt;/p&gt;
 
 &lt;p&gt;Some of the delays&lt;/p&gt;
 
-&lt;p&gt;Delays in starting project.
-Delays in staffing.
-Delays due to excessive requirements documentation.
-Delays in reviews and approvals.
-Delays in testing.
-Delays in deployment.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Delays in starting project.&lt;/li&gt;
+  &lt;li&gt;Delays in staffing.&lt;/li&gt;
+  &lt;li&gt;Delays due to excessive requirements documentation.&lt;/li&gt;
+  &lt;li&gt;Delays in reviews and approvals.&lt;/li&gt;
+  &lt;li&gt;Delays in testing.&lt;/li&gt;
+  &lt;li&gt;Delays in deployment.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;How would delay effects customer? Delays keeps customer from realizing value as quickly as possible.&lt;/p&gt;
 
 &lt;p&gt;When a critical customer need arrives in your development organization, the speed with which you can respond is directly related to the systematic delays in your development cycle.&lt;/p&gt;
 
-&lt;p&gt;Motion&lt;/p&gt;
+&lt;h2 id=&quot;motion&quot;&gt;Motion&lt;/h2&gt;
 
 &lt;p&gt;When a developer has a question, how much motion does it take to find out an answer?&lt;/p&gt;
 
@@ -136,11 +176,9 @@ Delays in deployment.&lt;/p&gt;
 
 &lt;p&gt;It may only relate to people, often even the artifacts move around.&lt;/p&gt;
 
-&lt;p&gt;Digram about move.&lt;/p&gt;
-
 &lt;p&gt;The biggest waste of in all document hands off is that documentation don’t cant really contain all information that the next person needs.&lt;/p&gt;
 
-&lt;p&gt;Defects&lt;/p&gt;
+&lt;h2 id=&quot;defects&quot;&gt;Defects&lt;/h2&gt;
 
 &lt;p&gt;The amount of waste caused by a defect is the product of the defect impact and the time it goes undetected.&lt;/p&gt;
 
@@ -148,7 +186,8 @@ Delays in deployment.&lt;/p&gt;
 
 &lt;p&gt;To reduce this waste find the defects as early as possible. Test immediately integrate often and release to production as soon as possible.&lt;/p&gt;
 
-&lt;p&gt;Management Activities&lt;/p&gt;
+&lt;h2 id=&quot;management-activities&quot;&gt;Management Activities&lt;/h2&gt;
+&lt;p&gt;Management Activities do not directly add value to a product, but they do have a big impact on waste in an organization.&lt;/p&gt;
 
 &lt;p&gt;Project tracking and control systems also do not add value, and further, they may be an indication of too much work in the system.&lt;/p&gt;
 
@@ -156,9 +195,26 @@ Delays in deployment.&lt;/p&gt;
 
 &lt;p&gt;Consider Project Prioritization and work release system. If the work release system is good we don’t need much of project prioritization.&lt;/p&gt;
 
-&lt;p&gt;Revisit this section&lt;/p&gt;
+&lt;p&gt;Authorization systems that are setup to review and approve changes to requirements often add significant delay as opposed to adding value to customer.&lt;/p&gt;
 
-&lt;p&gt;Value stream  mapping&lt;/p&gt;
+&lt;p&gt;Learning to see waste is an ongoing process of changing the way you think about what is really necessary.&lt;/p&gt;
+
+&lt;h2 id=&quot;map-your-value-stream&quot;&gt;Map your Value Stream&lt;/h2&gt;
+&lt;p&gt;Mapping your value stream is a good way to start discovering the waste in your software development process.Creating a Value Stream map is a paper and pencil exercise you can easily perform while walking around your organization.
+Your goal is to draw chart of the average customer request, from arrival to completion.Working with the people involved in each activity, sketch all the process steps necessary to fill the request, as well as the average amount of time that a request spends in each step.&lt;/p&gt;
+
+&lt;p&gt;You might have already seen the following value map for the projects you have worked in water fall model.&lt;/p&gt;
+
+&lt;p&gt;(http://yourdomain.com/images/ValueStreamWaterfall.png)&lt;/p&gt;
+
+&lt;p&gt;In the above value stream map RED is for wait time  and GREEN is activity time. The customer sign-off takes more time because customer thinks it as an higher risk since this map indicates that they dont get another chance to review and change what they need.In all other phases there are several reviews involved with client and even with external times which is adding more wait time in each and every phase.&lt;/p&gt;
+
+&lt;p&gt;Value stream map for agile looks like follows&lt;/p&gt;
+
+&lt;p&gt;(http://yourdomain.com/images/ValueStreamAgile.png)&lt;/p&gt;
+
+&lt;p&gt;The initial value stream map indicates that customer sign-off might be a source of irritation as well as delay.It shows design reviews and reviews at all phases should be moved inline with development, since they are currently a great source of delay.
+Finally it indicates that planning for deployment should occur earlier in the process.Since the team has decided on agile development, it will solve the problems by moving in to incremental development, gathering requirements as needed, integrating design reviews with coding and planning early for regular deployments.&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 15 Jun 2014 15:04:30 -0700</pubDate>
