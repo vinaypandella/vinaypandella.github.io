@@ -205,13 +205,13 @@ Your goal is to draw chart of the average customer request, from arrival to comp
 
 &lt;p&gt;You might have already seen the following value map for the projects you have worked in water fall model.&lt;/p&gt;
 
-&lt;p&gt;(http://vinaypandella.github.io//images/ValueStreamWaterfall.png)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://vinaypandella.github.io//images/ValueStreamWaterfall.png&quot; alt=&quot;ValueStreamWaterfall&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In the above value stream map RED is for wait time  and GREEN is activity time. The customer sign-off takes more time because customer thinks it as an higher risk since this map indicates that they dont get another chance to review and change what they need.In all other phases there are several reviews involved with client and even with external times which is adding more wait time in each and every phase.&lt;/p&gt;
 
 &lt;p&gt;Value stream map for agile looks like follows&lt;/p&gt;
 
-&lt;p&gt;(http://vinaypandella.github.io//images/ValueStreamAgile.png)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://vinaypandella.github.io//images/ValueStreamAgile.png&quot; alt=&quot;ValueStreamAgile&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The initial value stream map indicates that customer sign-off might be a source of irritation as well as delay.It shows design reviews and reviews at all phases should be moved inline with development, since they are currently a great source of delay.
 Finally it indicates that planning for deployment should occur earlier in the process.Since the team has decided on agile development, it will solve the problems by moving in to incremental development, gathering requirements as needed, integrating design reviews with coding and planning early for regular deployments.&lt;/p&gt;
