@@ -7,12 +7,113 @@
     <atom:link href="http://vinaypandella.github.io//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Running Multiple Tomcat Instances using one source</title>
+        <description>&lt;p&gt;Here’s a brief on how to run more than one instance of Tomcat on a single machine.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-tomcat&quot;&gt;Install Tomcat&lt;/h2&gt;
+&lt;p&gt;Download Tomcat 5.5, 6.x, or 7.x and unzip it into an appropriate directory. I usually put it in /usr/local, so it ends up in a directory called /usr/local/apache-tomcat-5.5.17, and make a symlink named /usr/local/tomcat to that directory. When later versions come out, I can unzip them and relink.&lt;/p&gt;
+
+&lt;h2 id=&quot;make-directories-for-each-instance&quot;&gt;Make directories for each instance&lt;/h2&gt;
+
+&lt;p&gt;For each instance of Tomcat you’re going to run, you’ll need a directory that will be CATALINA_BASE. For example, you might make them /var/tomcat/serverA and /var/tomcat/serverB.&lt;/p&gt;
+
+&lt;p&gt;In each of these directories you need the following subdirectories: conf, logs, temp, webapps, and work.&lt;/p&gt;
+
+&lt;p&gt;Put a server.xml and web.xml file in the conf directory. You can get these from the conf directory of the directory where you put the tomcat installation files, although of course you should tighten up your server.xml a bit.&lt;/p&gt;
+
+&lt;p&gt;The webapps directory is where you’ll put the web applications you want to run on the particular instance of Tomcat.&lt;/p&gt;
+
+&lt;p&gt;Usually you can do this through DevOps code.&lt;/p&gt;
+
+&lt;h2 id=&quot;configure-the-ports-andor-addresses-for-each-instance&quot;&gt;Configure the ports and/or addresses for each instance&lt;/h2&gt;
+
+&lt;p&gt;Tomcat listens to at least two network ports, one for the shutdown command, and one or more for accepting requests. Two instances of Tomcat can’t listen to the same port number on the same IP address, so you will need to edit your server.xml files to change the ports they listen to.&lt;/p&gt;
+
+&lt;p&gt;The first port to look at is the shutdown port. This is used by the command line shutdown script (actually, but the Java code it runs) to tell the Tomcat instance to shut itself down. This port is defined at the top of the server.xml file for the instance.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Server&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;8001&amp;quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shutdown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;_SHUTDOWN_COMMAND_&amp;quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Make sure each instance uses a different port value. The port value will normally need to be higher than 1024, and shouldn’t conflict with any other network service running on the same system.&lt;/p&gt;
+
+&lt;p&gt;Unlike the other ports Tomcat listens to, the shutdown port can’t be configured to listen to its port on a different IP address. It always listens on 127.0.0.1.&lt;/p&gt;
+
+&lt;h2 id=&quot;startup&quot;&gt;Startup&lt;/h2&gt;
+
+&lt;p&gt;Startup scripts are a whole other topic, but here’s the brief rundown. The main different from running a single Tomcat instance is you need to set CATALINA_BASE to the directory you set up for the particular instance you want to start (or stop). Here’s a typical startup routine:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/usr/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JAVA_OPTS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-Xmx800m -Xms800m&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CATALINA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/usr/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tomcat&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CATALINA_BASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/var/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tomcat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serverA&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JAVA_HOME&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JAVA_OPTS&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CATALINA_HOME&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CATALINA_BASE&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$CATALINA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;catalina&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 17 Jun 2014 15:04:30 -0700</pubDate>
+        <link>http://vinaypandella.github.io//tomcat/server/coding/development/software/2014/06/17/Running%20Multiple%20Tomcat%20Instances%20on%20One%20Server/</link>
+        <guid isPermaLink="true">http://vinaypandella.github.io//tomcat/server/coding/development/software/2014/06/17/Running%20Multiple%20Tomcat%20Instances%20on%20One%20Server/</guid>
+      </item>
+    
+      <item>
+        <title>Agile Coding</title>
+        <description>&lt;p&gt;My thoughts on Agile Coding&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Program Intently and Expressively&lt;/li&gt;
+  &lt;li&gt;Communicate in Code&lt;/li&gt;
+  &lt;li&gt;Actively Evaluate Trade-Offs&lt;/li&gt;
+  &lt;li&gt;Code in Increments&lt;/li&gt;
+  &lt;li&gt;Keep It Simple&lt;/li&gt;
+  &lt;li&gt;Write Cohesive Code&lt;/li&gt;
+  &lt;li&gt;Tell, Don’t Ask&lt;/li&gt;
+  &lt;li&gt;Substitute by Contract&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;program-intently-and-expressively&quot;&gt;Program Intently and Expressively&lt;/h2&gt;
+
+&lt;p&gt;Choose readability over convenience, code clarity comes before performance. Always remember that code will be read many times more than it is written, so it is worth it to make life easier to those who follow.&lt;/p&gt;
+
+&lt;h2 id=&quot;communicate-in-code&quot;&gt;Communicate in Code&lt;/h2&gt;
+
+&lt;p&gt;Choose wisely the names of the methods and variables to be expressive. Comments should not shadow the expressiveness of the code. Instead, comments about methods should convey information about the purpose (why does the method exists) plus information about the arguments, return values and exceptions.&lt;/p&gt;
+
+&lt;h2 id=&quot;actively-evaluate-trade-offs&quot;&gt;Actively Evaluate Trade-Offs&lt;/h2&gt;
+
+&lt;p&gt;There is usually not a perfect answer to the best framework or development procedure (applicable to life too). So it is far more important to be aware what do we need to solve and choose the right solution/answer for that. Consider performance, convenience, productivity, cost and time. Let the stakeholder of the code you are writing mark you the focus you have to take.&lt;/p&gt;
+
+&lt;h2 id=&quot;code-in-increments&quot;&gt;Code in Increments&lt;/h2&gt;
+
+&lt;p&gt;Like running a marathon, do not focus on the end point. Instead, try to put closer objectives. This iteration not just let you produce more focused software components (methods, classes, modules, libraries) but also takes care of your mental healthiness by not burning you. Write code in short edit/build/test cycles.&lt;/p&gt;
+
+&lt;h2 id=&quot;keep-it-simple&quot;&gt;Keep It Simple&lt;/h2&gt;
+
+&lt;p&gt;take that necessary time and keep it simple.&lt;/p&gt;
+
+&lt;h2 id=&quot;write-cohesive-code&quot;&gt;Write Cohesive Code&lt;/h2&gt;
+
+&lt;p&gt;Cohesion is the measure of how functionally related the members of a software component are. It feels like rowing all in the same direction. Cohesion empowers you to group similar members by their functionality. Special mention to the Single Responsibility Principle when writing classes that states that a method should have only one reason to change. Keep classes focused and components small.&lt;/p&gt;
+
+&lt;h2 id=&quot;tell-dont-ask&quot;&gt;Tell, Don’t Ask&lt;/h2&gt;
+
+&lt;p&gt;Tell objects to do things based on their state. This business logic of the what the object does must reside inside the object itself, instead of playing with the object state in the calling class.&lt;/p&gt;
+
+&lt;h2 id=&quot;substitute-by-contract&quot;&gt;Substitute by Contract&lt;/h2&gt;
+
+&lt;p&gt;Inheritance vs. composition. If inheritance is chosen, overriding of methods should be done accepting the parent contract (not modifying its functionality) in such a way that the derived class can be substitute by the parent class. In most of the cases that you just want to add functionality to a class, though, composition is a most preferable option.&lt;/p&gt;
+
+&lt;p&gt;Please visit this again am updating this with code examples and also trying to get the metrics that can be used to identify these from the code.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 05 Jun 2014 15:04:30 -0700</pubDate>
+        <link>http://vinaypandella.github.io//lean/agile/coding/development/software/2014/06/05/Agile%20Coding/</link>
+        <guid isPermaLink="true">http://vinaypandella.github.io//lean/agile/coding/development/software/2014/06/05/Agile%20Coding/</guid>
+      </item>
+    
+      <item>
         <title>Lean Principles @ Software Development - I</title>
-        <description>&lt;p&gt;Nowadays we commonly hear about agile methodology an agile practices now a days in IT industry, I always have feel that ‘Agile at Scale ‘ is a bigger problem organizations are facing now a days when trying to adopt to agile process or agile delivery process.All agile practices works pretty well in smaller to medium sized organizations when it comes to bigger organizations/enterprises the co-ordination should happen between large no of teams which are not co-located.
-Though i have worked in different organizations who follow agile and begin trained by IM [Iteration Manager ]/Agile coaches several times regarding Agile still i feel like something is missing, in search for origins of Agile i came across ‘Lean Principles’ and am surprised while going through the principles and came to know that all these agile principles are been adopted from Lean Principles.
+        <description>&lt;p&gt;Nowadays we commonly hear about agile methodology and agile practices in IT industry, I always felt that ‘ Agile at Scale ‘ is a bigger problem organizations face when they try to adopt to agile. All agile practices works pretty well in smaller to medium sized organizations when it comes to bigger organizations/enterprises the co-ordination should happen between large no of teams which are not co-located.
+Though I have worked in different organizations who follow agile and being trained by IM [Iteration Manager ]/Agile coaches several times regarding Agile practices, still i feel like something is missing, in search for origins of Agile I came across ‘Lean Principles’ and am surprised that all agile practices are been derived based on the Lean Principles.
 If every member in the organization at every department knows about this ‘Lean Principles’ and been educated about these core principles from Lean ‘ Agile at Scale ‘ becomes easier.&lt;/p&gt;
 
-&lt;p&gt;Following are the few insights from the book Lean Software Development: An Agile Toolkit: An Agile Toolkit (Agile Software Development Series) Pearson Education , most of the material below is how the lean principles can be adopted to Software Development.&lt;/p&gt;
+&lt;p&gt;Following are the few insights from the book Lean Software Development: An Agile Toolkit (Agile Software Development Series) Pearson Education , most of the content below is how the lean principles can be adopted to Software Development.&lt;/p&gt;
 
 &lt;p&gt;Lean software development applies a wealth of information about applying lean techniques from industrial setting to software development. Wait for the requirements than to build up the application in anticipation of the requirements yet the ideal is to deliver the application immediately when the requirements are ready.&lt;/p&gt;
 
@@ -224,9 +325,9 @@ Finally it indicates that planning for deployment should occur earlier in the pr
 &lt;/ul&gt;
 
 </description>
-        <pubDate>Sun, 15 Jun 2014 15:04:30 -0700</pubDate>
-        <link>http://vinaypandella.github.io//lean/2014/06/15/Lean%20Development/</link>
-        <guid isPermaLink="true">http://vinaypandella.github.io//lean/2014/06/15/Lean%20Development/</guid>
+        <pubDate>Sun, 25 May 2014 15:04:30 -0700</pubDate>
+        <link>http://vinaypandella.github.io//lean/2014/05/25/Lean%20Development/</link>
+        <guid isPermaLink="true">http://vinaypandella.github.io//lean/2014/05/25/Lean%20Development/</guid>
       </item>
     
   </channel>
