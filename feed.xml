@@ -11,7 +11,7 @@
         <description>&lt;p&gt;Here’s a brief on how to run more than one instance of Tomcat on a single machine.&lt;/p&gt;
 
 &lt;h2 id=&quot;install-tomcat&quot;&gt;Install Tomcat&lt;/h2&gt;
-&lt;p&gt;Download Tomcat 5.5, 6.x, or 7.x and unzip it into an appropriate directory. I usually put it in /usr/local, so it ends up in a directory called /usr/local/apache-tomcat-5.5.17, and make a symlink named /usr/local/tomcat to that directory. When later versions come out, I can unzip them and relink.&lt;/p&gt;
+&lt;p&gt;Download Tomcat 5.5, 6.x, or 7.x and unzip it into an appropriate directory. Put it in /usr/local, so it ends up in a directory called /usr/local/apache-tomcat-5.5.17, and make a symlink named /usr/local/tomcat to that directory.&lt;/p&gt;
 
 &lt;h2 id=&quot;make-directories-for-each-instance&quot;&gt;Make directories for each instance&lt;/h2&gt;
 
