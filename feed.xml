@@ -216,7 +216,7 @@ Your goal is to draw chart of the average customer request, from arrival to comp
 &lt;p&gt;The initial value stream map indicates that customer sign-off might be a source of irritation as well as delay.It shows design reviews and reviews at all phases should be moved inline with development, since they are currently a great source of delay.
 Finally it indicates that planning for deployment should occur earlier in the process.Since the team has decided on agile development, it will solve the problems by moving in to incremental development, gathering requirements as needed, integrating design reviews with coding and planning early for regular deployments.&lt;/p&gt;
 
-&lt;p&gt;Try This&lt;/p&gt;
+&lt;p&gt;Thank You for reading this will post the remaining principles soon, Try This&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Take some time to discuss each of the seven wastes of software development.&lt;/li&gt;
