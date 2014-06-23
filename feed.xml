@@ -110,9 +110,13 @@ Following are the few principles which are required to be followed by an agile d
     
       <item>
         <title>Lean Principles @ Software Development - I</title>
-        <description>&lt;p&gt;Nowadays we commonly hear about agile methodology and agile practices in IT industry, I always felt that ‘ Agile at Scale ‘ is a bigger problem organizations face when they try to adopt to agile. All agile practices works pretty well in smaller to medium sized organizations when it comes to bigger organizations/enterprises the co-ordination should happen between large no of teams which are not co-located.
-Though I have worked in different organizations who follow agile and being trained by IM [Iteration Manager ]/Agile coaches several times regarding Agile practices, still i feel like something is missing, in search for origins of Agile I came across ‘Lean Principles’ and am surprised that all agile practices are been derived based on the Lean Principles.
-If every member in the organization at every department knows about this ‘Lean Principles’ and been educated about these core principles from Lean ‘ Agile at Scale ‘ becomes easier.&lt;/p&gt;
+        <description>&lt;p&gt;Nowadays we commonly hear about agile methodology and agile practices in IT industry, I always felt that ‘ Agile at Scale ‘ is a bigger problem organizations face when they try to adopt agile.&lt;/p&gt;
+
+&lt;p&gt;All agile practices works pretty well in smaller to medium sized organizations when it comes to bigger organizations/enterprises the co-ordination should happen between large no of teams which are not co-located.&lt;/p&gt;
+
+&lt;p&gt;Though I have worked in different organizations who follow agile and being trained by IM [Iteration Manager ]/Agile coaches several times regarding Agile practices, still i feel like something is missing, in search for origins of Agile I came across ‘Lean Principles’ and am surprised that all agile practices are been derived based on the Lean Principles.&lt;/p&gt;
+
+&lt;p&gt;If every member in the organization at every department knows about this ‘Lean Principles’ and been educated about these core principles from Lean ‘ Agile at Scale ‘ becomes easier.&lt;/p&gt;
 
 &lt;p&gt;Following are the few insights from the book Lean Software Development: An Agile Toolkit (Agile Software Development Series) Pearson Education , most of the content below is how the lean principles can be adopted to Software Development.&lt;/p&gt;
 
